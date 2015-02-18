@@ -1,2 +1,3 @@
-# web-storage
-testing different methods of client-side storage
+# storage
+
+An experiment to test various types of web storage, including cookies, Web Storage, and IndexedDB.
