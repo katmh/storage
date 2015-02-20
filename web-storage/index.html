@@ -6,37 +6,33 @@
 </head>
 <body>
     <h1>Web Storage</h1>
-    <ul>
-        <li id="large"></li>
-        <li id="small"></li>
-    </ul>
+
+    <form>
+        <!--
+        first name: Katherine
+        birthday: 1/20 (no year for demonstration purposes, to avoid offending judges :) )
+        favorite color: blue
+        favorite animal (from list): unicorn
+
+        Happy early/late birthday, Katherine!
+        [ Blue background w/ unicorn prancing across screen ]
+        -->
+        First Name: <input type="text" name="first-name" id="first-name" value="Kat"><br>
+        Birthday: <input type="text" name="birthday"><br>
+        Favorite Color: <input type="text" name="color"><br>
+        Favorite Animal: <input type="text" name="animal"><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <p id="output"></p>
+
     <script>
+        var name = document.getElementById("first-name").value;
+        localStorage.setItem("first-name", name);
+        document.getElementById("output").innerHTML = localStorage.getItem("first-name");
+
         // use performance.now() to get function time accurate to 1/1000th ms
         // unlike Date.now, represent times w/ microsecond precision & are not affected by system clock
-
-        var large1 = 123456789;
-        var large2 = 987654321;
-
-        var small1 = 5;
-        var small2 = 8;
-
-        function add(no1, no2) {
-            var sum = no1 + no2;
-            alert(sum);
-        }
-
-        var largeTime0 = performance.now();
-            add(large1, large2);
-        var largeTime1 = performance.now();
-
-        var smallTime0 = performance.now();
-            add(small1, small2);
-        var smallTime1 = performance.now();
-
-        // display results in HTML
-        document.getElementById("large").innerHTML="Adding " + large1 + " and " + large2 + " took <b>" + (largeTime1 - largeTime0) + "</b> milliseconds.";
-
-        document.getElementById("small").innerHTML="Adding " + small1 + " and " + small2 + " took <b>" + (smallTime1 - smallTime0) + "</b> milliseconds.";
     </script>
 </body>
 </html>
