@@ -4,35 +4,87 @@
     <meta charset="UTF-8">
     <title>Web Storage</title>
 </head>
+
 <body>
     <h1>Web Storage</h1>
 
-    <form>
-        <!--
-        first name: Katherine
-        birthday: 1/20 (no year for demonstration purposes, to avoid offending judges :) )
-        favorite color: blue
-        favorite animal (from list): unicorn
+    <form name="data">
+        First Name: <input type="text" name="first-name" id="first-name" placeholder="Bob"><br>
 
-        Happy early/late birthday, Katherine!
-        [ Blue background w/ unicorn prancing across screen ]
-        -->
-        First Name: <input type="text" name="first-name" id="first-name" value="Kat"><br>
-        Birthday: <input type="text" name="birthday"><br>
-        Favorite Color: <input type="text" name="color"><br>
-        Favorite Animal: <input type="text" name="animal"><br>
-        <input type="submit" value="Submit">
+        Favorite Color:
+        <select id="color" form="data">
+            <option value="dodgerblue">Blue</option>
+            <option value="crimson">Pink</option>
+            <option value="darkgreen">Green</option>
+            <option value="darkorange">Orange</option>
+            <option value="darkgray">Gray</option>
+        </select><br>
+
+        Favorite Animal:
+        <select id="animal" form="data">
+            <option value="../img/dog.png">Dog</option>
+            <option value="../img/cat.png">Cat</option>
+            <option value="../img/whale.png">Whale</option>
+            <option value="../img/horse.png">Horse</option>
+            <option value="../img/sheep.png">Sheep</option>
+        </select><br>
+
+        <!--Random text is included to increase overall times; remove for demonstration-->
+        Random Text:<br>
+        <textarea id="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea><br>
+
+        <a href="#" id="save">Continue</a>
+        <a href="#" id="clear">Clear</a>
     </form>
-    
-    <p id="output"></p>
+
+    <div id="illustration">
+        <p id="exclaim"></p>
+        <img id="animal-img" src="">
+    </div>
 
     <script>
-        var name = document.getElementById("first-name").value;
-        localStorage.setItem("first-name", name);
-        document.getElementById("output").innerHTML = localStorage.getItem("first-name");
+        document.getElementById("save").addEventListener("click", saveData);
 
-        // use performance.now() to get function time accurate to 1/1000th ms
-        // unlike Date.now, represent times w/ microsecond precision & are not affected by system clock
+        // if already have stored data, load it
+        var name = document.getElementById("first-name");
+        name.value = localStorage.name;
+
+        function saveData() {
+            // ties data to localStorage variables
+            localStorage.name = document.getElementById("first-name").value;
+            localStorage.bday = document.getElementById("birthday").value;
+            localStorage.color = document.getElementById("color").value;
+            localStorage.animal = document.getElementById("animal").value;
+            localStorage.text = document.getElementById("text").value;
+
+            // this is the actual speed measuring part
+            // to ensure speed accuracy, the code only GETS the items but doesn't do anything with them
+
+            // use performance.now() to get function time accurate to 1/1000th ms
+            // unlike Date.now, represent times w/ microsecond precision & are not affected by system clock
+            var t0 = performance.now();
+                localStorage.getItem("name");
+                localStorage.getItem("bday");
+                localStorage.getItem("color");
+                localStorage.getItem("animal");
+                localStorage.getItem("text");
+            var t1 = performance.now()
+
+            var time = t1 - t0;
+            alert("It took " + time + " ms to retrieve the stored data.");
+        }
+
+        // demo portion, actually displays the retrieved data
+        // retrieval times here are not counted in experiment results
+
+        // calculate whether today is closer to next or previous birthday
+
+        document.getElementById("exclaim").innerHTML = "Happy birthday, " + localStorage.name + "!";
+
+        var illustration = document.getElementById("illustration");
+        illustration.style.background = localStorage.color;
+
+        document.getElementById("animal-img").src = localStorage.animal;
     </script>
 </body>
 </html>
