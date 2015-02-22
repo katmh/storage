@@ -4,7 +4,54 @@
     <meta charset="UTF-8">
     <title>IndexedDB</title>
 </head>
+
 <body>
     <h1>IndexedDB</h1>
+
+    <script>
+
+        var openRequest = indexedDB.open("test", 1);
+
+        openRequest.onupgradeneeded = function(e) {
+            console.log("Upgrading...");
+        }
+
+        openRequest.onsuccess = function(e) {
+            console.log("Success!");
+            db = e.target.result;
+        }
+
+        var openRequest = indexedDB.open("test_v2",1);
+
+        openRequest.onupgradeneeded = function(e) {
+            console.log("running onupgradeneeded");
+            var thisDB = e.target.result;
+
+            if(!thisDB.objectStoreNames.contains("firstOS")) {
+                thisDB.createObjectStore("firstOS");
+            }
+        }
+
+        openRequest.onsuccess = function(e) {
+            console.log("Success!");
+            db = e.target.result;
+        }
+
+        var transaction = db.transaction(["people"], "readwrite");
+
+        var store = transaction.objectStore("people");
+
+        var person = {
+            name:name,
+            email:email,
+            created:new Date()
+        }
+
+        var request = store.add(person,1);
+
+        request.onsuccess = function(e) {
+            console.log("Woot! Dit it");
+        }
+    </script>
 </body>
 </html>

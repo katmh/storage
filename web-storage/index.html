@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Web Storage</title>
+    <link rel="stylesheet" href="../css/styles.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <h1>Web Storage</h1>
 
     <form name="data">
-        First Name: <input type="text" name="first-name" id="first-name" placeholder="Bob"><br>
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name"><br>
 
-        Favorite Color:
+        <label for="color">Favorite Color:</label>
         <select id="color" form="data">
             <option value="dodgerblue">Blue</option>
             <option value="crimson">Pink</option>
@@ -20,7 +23,7 @@
             <option value="darkgray">Gray</option>
         </select><br>
 
-        Favorite Animal:
+        <label for="animal">Favorite Animal:</label>
         <select id="animal" form="data">
             <option value="../img/dog.png">Dog</option>
             <option value="../img/cat.png">Cat</option>
@@ -30,20 +33,22 @@
         </select><br>
 
         <!--Random text is included to increase overall times; remove for demonstration-->
-        Random Text:<br>
-        <textarea id="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea><br>
+        <label for="text">Random Text:</label><br>
+        <textarea id="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc</textarea><br>
 
-        <a href="#" id="save">Continue</a>
         <a href="#" id="clear">Clear</a>
+        <a href="#" id="continue">Continue</a>
     </form>
 
-    <div id="illustration">
-        <p id="exclaim"></p>
+    <p id="result"></p>
+
+    <div id="demo">
+        <p id="greeting"></p>
         <img id="animal-img" src="">
     </div>
 
     <script>
-        document.getElementById("save").addEventListener("click", saveData);
+        document.getElementById("continue").addEventListener("click", saveData);
 
         // if already have stored data, load it
         var name = document.getElementById("first-name");
@@ -52,7 +57,6 @@
         function saveData() {
             // ties data to localStorage variables
             localStorage.name = document.getElementById("first-name").value;
-            localStorage.bday = document.getElementById("birthday").value;
             localStorage.color = document.getElementById("color").value;
             localStorage.animal = document.getElementById("animal").value;
             localStorage.text = document.getElementById("text").value;
@@ -64,25 +68,24 @@
             // unlike Date.now, represent times w/ microsecond precision & are not affected by system clock
             var t0 = performance.now();
                 localStorage.getItem("name");
-                localStorage.getItem("bday");
                 localStorage.getItem("color");
                 localStorage.getItem("animal");
                 localStorage.getItem("text");
             var t1 = performance.now()
 
             var time = t1 - t0;
-            alert("It took " + time + " ms to retrieve the stored data.");
+            document.getElementById("result").innerHTML = "It took <b>" + time + "</b> milliseconds to retrieve the stored data."
         }
 
         // demo portion, actually displays the retrieved data
-        // retrieval times here are not counted in experiment results
+        // no timing involved here
 
-        document.getElementById("exclaim").innerHTML = "Happy birthday, " + localStorage.name + "!";
+        document.getElementById("greeting").innerHTML = "Hello, " + localStorage.name + "!"; // Hello, [NAME]!
 
-        var illustration = document.getElementById("illustration");
-        illustration.style.background = localStorage.color;
+        var demo = document.getElementById("demo"); // background color = fave color
+        demo.style.background = localStorage.color;
 
-        document.getElementById("animal-img").src = localStorage.animal;
+        document.getElementById("animal-img").src = localStorage.animal; // add img of fave animal
     </script>
 </body>
 </html>
