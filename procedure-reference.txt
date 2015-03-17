@@ -1,0 +1,16 @@
+Summary of experimental procedure:
+    - Collect the following information:
+        * Name
+        * Color
+        * Animal
+        * Random text (in order to slow down times, which may lead to a greater and more noticeable difference between performance of APIs)
+    - Store the information:
+        * Web Storage: in localStorage variables
+        * Cookies: to individual cookies / one object?
+        * IndexedDB: to one database, with data in 4 key-value pairs
+    - Retrieve and display the information:
+        * Web Storage: get variables and display in the innerHTML of a blank element
+        * Cookies: get cookies and display in the innerHTML of a blank element
+        * IndexedDB: get items and display in the innerHTML of a blank element
+        * Do not separate variables with any characters (spaces, commas, etc.)
+            ~ var1 + var2, not var1 + " " + var2

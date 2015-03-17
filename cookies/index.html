@@ -5,6 +5,20 @@
     <title>Cookies</title>
 </head>
 <body>
-    <h1>Cookies</h1>
+    <label for="first-name">Name: </label>
+    <input type="text" id="first-name"></input>
+    <a href="#" id="continue">Continue</a>
+
+    <script>
+    document.getElementById("continue").addEventListener("click", saveData);
+
+    function saveData() {
+        var inputName = document.getElementById("first-name").value;
+        document.cookie="username=John";
+        var x = document.cookie;
+
+        console.log(x);
+    }
+    </script>
 </body>
 </html>
