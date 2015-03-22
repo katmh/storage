@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cookies</title>
+    <title>Web Storage</title>
     <link rel="stylesheet" href="../css/styles.min.css">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-    <h1>Cookies</h1>
+    <h1>Web Storage</h1>
 
     <form name="data">
         <label for="first-name">First Name:</label>
@@ -37,12 +37,73 @@
         <textarea id="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc</textarea><br>
 
         <a href="" id="clear">Clear</a>
-        <a href="#" id="continue">Continue</a>
+        <a href="#demo" id="continue">Continue</a>
     </form>
 
     <p id="result"></p>
-    <p id="view"></p>
 
-    <script src="../js/cookies.test.js"></script>
+    <div id="demo">
+        <p id="greeting"></p>
+        <img id="animal-img" src="">
+    </div>
+
+    <script>
+        // attaches functions to buttons
+        document.getElementById("continue").addEventListener("click", saveData);
+        document.getElementById("clear").addEventListener("click", clearData);
+
+        // if already have stored data, load them and show demo
+        if (localStorage.name) { // checks to see if there is a localStorage variable called name
+            document.getElementById("first-name").value=localStorage.name;
+            document.getElementById("color").value=localStorage.color;
+            document.getElementById("animal").value=localStorage.animal;
+            document.getElementById("text").value=localStorage.text;
+
+            showDemo();
+        }
+
+        // function to show demo
+        function showDemo() {
+            // no timing involved here
+
+            document.getElementById("greeting").innerHTML = "Hello, " + localStorage.name + "!"; // Hello, [NAME]!
+
+            var demo = document.getElementById("demo"); // background color = fave color
+            demo.style.background = localStorage.color;
+
+            document.getElementById("animal-img").src = localStorage.animal; // add img of fave animal
+        }
+
+        // function to clear data
+        function clearData() {
+            localStorage.clear();
+            document.location.reload();
+        }
+
+        function saveData() {
+            // ties data to localStorage variables
+            localStorage.name = document.getElementById("first-name").value;
+            localStorage.color = document.getElementById("color").value;
+            localStorage.animal = document.getElementById("animal").value;
+            localStorage.text = document.getElementById("text").value;
+
+            // this is the actual speed measuring part
+            // to ensure speed accuracy, the code only GETS the items but doesn't do anything with them
+
+            // use performance.now() to get function time accurate to 1/1000th ms
+            // unlike Date.now, represent times w/ microsecond precision & are not affected by system clock
+            var t0 = performance.now();
+                var name = localStorage.getItem("name");
+                var color = localStorage.getItem("color");
+                var animal = localStorage.getItem("animal");
+                var text = localStorage.getItem("text");
+            var t1 = performance.now()
+
+            var time = t1 - t0;
+            document.getElementById("result").innerHTML = "It took <b>" + time + "</b> milliseconds to retrieve the stored data."
+
+            showDemo();
+        }
+    </script>
 </body>
 </html>

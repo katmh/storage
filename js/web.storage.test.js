@@ -1,0 +1,36 @@
+// attaches functions to buttons
+document.getElementById("continue").addEventListener("click", saveData);
+document.getElementById("clear").addEventListener("click", clearData);
+
+// if already have stored data, load them and show demo
+if (localStorage.name) { // checks to see if there is a localStorage variable called name
+    document.getElementById("first-name").value=localStorage.name;
+    document.getElementById("color").value=localStorage.color;
+    document.getElementById("animal").value=localStorage.animal;
+    document.getElementById("text").value=localStorage.text;
+}
+
+// function to clear data
+function clearData() {
+    localStorage.clear();
+    document.location.reload();
+}
+
+function saveData() {
+    // ties data to localStorage variables
+    localStorage.name = document.getElementById("first-name").value;
+    localStorage.color = document.getElementById("color").value;
+    localStorage.animal = document.getElementById("animal").value;
+    localStorage.text = document.getElementById("text").value;
+
+    // this is the actual speed measuring part
+    // minified to stimulate real world production code
+    // ties localStorage data to variables, puts them into innerHTML of "view" element
+
+    // use performance.now() to get function time accurate to 1/1000th ms
+    // unlike Date.now, represent times w/ MICROsecond precision & are not affected by system clock
+    var t0=performance.now(),name=localStorage.getItem("name"),color=localStorage.getItem("color"),animal=localStorage.getItem("animal"),text=localStorage.getItem("text");document.getElementById("view").innerHTML="Name: "+name+"<br>Color: "+color+"<br>Animal: "+animal+"<br>Filler text: "+text;var t1=performance.now();
+
+    var time = t1 - t0;
+    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve your stored data, displayed below:"
+}

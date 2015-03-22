@@ -78,3 +78,16 @@ textarea {
   background: #008f3f;
   float: right;
 }
+
+#result {
+  font: 2rem/1.5em Open Sans;
+  text-align: center;
+  padding: 3% 15% 1.5%;
+}
+
+#view {
+  padding: 1.5% 10% 3%;
+}
+#view p {
+  padding: 1rem;
+}

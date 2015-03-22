@@ -1,3 +1,5 @@
+// same as indexeddb.js, but without comments in timed section (lines 83-89)
+
 // create a reference to the notifications list in the bottom of the app; we will write database messages into this list by appending list items on to the inner HTML of this variable - this is all the lines that say note.innerHTML += '<li>foo</li>';
 var note = document.getElementById('notifications');
 
@@ -80,15 +82,9 @@ window.onload = function() {
     // start timing here, it will time how long it takes to scan the table and display it
     var t0 = performance.now();
       var cursor = event.target.result;
-        // if there is still another cursor to go, keep running this code
         if(cursor) {
-          // create a list item to put each data item inside when displaying it
           var listItem = document.createElement('li');
-
-          // build the to-do list entry and put it into the list item via innerHTML.
-          listItem.innerHTML = cursor.value.taskTitle + ' — ' + cursor.value.color + ', ' + cursor.value.animal + ', ' + cursor.value.text + '.'; // TODO: cursor.value.name ...
-
-          // put the item item inside the task list
+          listItem.innerHTML = cursor.value.taskTitle + ' — ' + cursor.value.color + ', ' + cursor.value.animal + ', ' + cursor.value.text + '.';
           taskList.appendChild(listItem);
     var t1 = performance.now();
     var time = t1 - t0;
