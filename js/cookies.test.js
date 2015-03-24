@@ -26,19 +26,7 @@ function saveData() {
     Cookies.set("animal", formAnimal);
     Cookies.set("text", formText);
 
-    var t0 = performance.now(); // begin timing
-        // sets cookies to string variables of same name
-        var name = Cookies.get("name");
-        var color = Cookies.get("color");
-        var animal = Cookies.get("animal");
-        var text = Cookies.get("text");
-
-        // display data
-        document.getElementById("view").innerHTML = "Name: " + name + "<br>" +
-                                                    "Color: " + color + "<br>" +
-                                                    "Animal: " + animal + "<br>" +
-                                                    "Filler text: " + text;
-    var t1 = performance.now(); // end timing
+    var t0=performance.now(),name=Cookies.get("name"),color=Cookies.get("color"),animal=Cookies.get("animal"),text=Cookies.get("text");document.getElementById("view").innerHTML="Name: "+name+"<br>Color: "+color+"<br>Animal: "+animal+"<br>Filler text: "+text;var t1=performance.now();
 
     var time = t1 - t0;
     document.getElementById("result").innerHTML = "It took <b>" + time + "</b> milliseconds to retrieve and display the stored data, displayed below:";
