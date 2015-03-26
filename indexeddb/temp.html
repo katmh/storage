@@ -11,8 +11,8 @@
     <h1>IndexedDB</h1>
 
     <form id="task-form" action="index.html" name="data">
-        <label for="first">Name:</label>
-        <input id="first" type="text"><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
 
         <label for="color">Favorite Color:</label>
         <select id="color" form="data">
@@ -38,13 +38,17 @@
 
         <a href="#" id="clear">Clear</a>
         <a href="#result" id="continue">Continue</a>
+
+        <div><input type="submit" id="submit" value="Submit"></div>
     </form>
+
+    <ul id="notifications"></ul>
 
     <div id="result"></div>
 
-    <div id="view"></div>
+    <ul id="task-list"></ul>
 </body>
 
-<script src="../js/indexeddb.js"></script>
+<script src="../js/indexeddb.test.js"></script>
 
 </html>

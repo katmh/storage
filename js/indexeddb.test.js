@@ -16,7 +16,7 @@ var newItem = [
 var taskList = document.getElementById('task-list');
 
 var taskForm = document.getElementById('task-form');
-var title = document.getElementById('title');
+// var title = document.getElementById('title');
 var name = document.getElementById('name');
 
 var color = document.getElementById('color');
@@ -59,8 +59,7 @@ window.onload = function() {
     };
 
     // Create an objectStore for this database
-
-    var objectStore = db.createObjectStore("toDoList", { keyPath: "taskTitle" }); // TODO: keyPath: "name"
+    var objectStore = db.createObjectStore("toDoList", { keyPath: "name" }); // TODO: keyPath: "name"
 
     // define what data items the objectStore will contain
 
@@ -84,11 +83,11 @@ window.onload = function() {
       var cursor = event.target.result;
         if(cursor) {
           var listItem = document.createElement('li');
-          listItem.innerHTML = cursor.value.taskTitle + ' — ' + cursor.value.color + ', ' + cursor.value.animal + ', ' + cursor.value.text + '.';
+          listItem.innerHTML = cursor.value.name + ' — ' + cursor.value.color + ', ' + cursor.value.animal + ', ' + cursor.value.text + '.';
           taskList.appendChild(listItem);
     var t1 = performance.now();
     var time = t1 - t0;
-    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> milliseconds to retrieve and display the stored data."
+    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve and display the stored data."
 
           // create a delete button inside each list item, giving it an event handler so that it runs the deleteButton()
           // function when clicked
@@ -96,7 +95,7 @@ window.onload = function() {
           listItem.appendChild(deleteButton);
           deleteButton.innerHTML = 'X';
           // here we are setting a data attribute on our delete button to say what task we want deleted if it is clicked!
-          deleteButton.setAttribute('data-task', cursor.value.taskTitle); // TODO: cusor.value.name
+          deleteButton.setAttribute('data-task', cursor.value.name); // TODO: cusor.value.name
           deleteButton.onclick = function(event) {
             deleteItem(event);
           }
@@ -120,7 +119,7 @@ window.onload = function() {
 
       // grab the values entered into the form fields and store them in an object ready for being inserted into the IDB
       var newItem = [
-        { taskTitle: title.value, color: color.value, animal: animal.value, text: text.value }
+        { name: name.value, color: color.value, animal: animal.value, text: text.value }
         // TODO: { name: name.value, color: color.value, animal: animal.value, text: text.value }
       ];
 
