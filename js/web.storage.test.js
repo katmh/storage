@@ -29,7 +29,7 @@ function saveData() {
 
     // use performance.now() to get function time accurate to 1/1000th ms
     // unlike Date.now, represent times w/ MICROsecond precision & are not affected by system clock
-    var t0=performance.now(),name=localStorage.getItem("name"),color=localStorage.getItem("color"),animal=localStorage.getItem("animal"),text=localStorage.getItem("text");document.getElementById("view").innerHTML="Name: "+name+"<br>Color: "+color+"<br>Animal: "+animal+"<br>Filler text: "+text;var t1=performance.now();
+    var t0=performance.now();document.getElementById("view").innerHTML="Name: "+localStorage.getItem("name")+"<br>"+"Color: "+localStorage.getItem("color")+"<br>"+"Animal: "+localStorage.getItem("animal")+"<br>"+"Filler text: "+localStorage.getItem("text");var t1=performance.now();
 
     var time = t1 - t0;
     document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve your stored data, displayed below:"
