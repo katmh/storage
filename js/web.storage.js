@@ -36,5 +36,5 @@ function saveData() {
     var t1 = performance.now();
 
     var time = t1 - t0;
-    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> milliseconds to retrieve the stored data, displayed below:"
+    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve the stored data, displayed below:"
 }
