@@ -14,11 +14,17 @@ function saveData() {
     Cookies.set("animal", formAnimal);
     Cookies.set("text", formText);
     
-    // sets form values to cookies
-    Cookies.set("name", document.getElementById("first-name").value);
-    Cookies.set("color", document.getElementById("color").value);
-    Cookies.set("animal", document.getElementById("animal").value);
-    Cookies.set("text", document.getElementById("text").value);
+    // sets form values to variables
+    var formName = document.getElementById("first-name").value;
+    var formColor = document.getElementById("color").value;
+    var formAnimal = document.getElementById("animal").value;
+    var formText = document.getElementById("text").value;
+
+    // sets variables from form values to cookies
+    Cookies.set("name", formName);
+    Cookies.set("color", formColor);
+    Cookies.set("animal", formAnimal);
+    Cookies.set("text", formText);
 
     var t0=performance.now();var name=Cookies.get("name");var color=Cookies.get("color");var animal=Cookies.get("animal");var text=Cookies.get("text");document.getElementById("view").innerHTML="Name: "+name+"<br>"+"Color: "+color+"<br>"+"Animal: "+animal+"<br>"+"Filler text: "+text;var t1=performance.now();
 
