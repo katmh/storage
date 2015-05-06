@@ -10,9 +10,9 @@ function saveData() {
     // resets cookies
     // TODO: check for cookies first
     Cookies.set("name", "");
-    Cookies.set("color", formColor);
-    Cookies.set("animal", formAnimal);
-    Cookies.set("text", formText);
+    Cookies.set("color", "");
+    Cookies.set("animal", "");
+    Cookies.set("text", "");
     
     // sets form values to variables
     var formName = document.getElementById("first-name").value;
@@ -26,19 +26,7 @@ function saveData() {
     Cookies.set("animal", formAnimal);
     Cookies.set("text", formText);
 
-    var t0 = performance.now(); // begin timing
-        // sets cookies to string variables of same name
-        var name = Cookies.get("name");
-        var color = Cookies.get("color");
-        var animal = Cookies.get("animal");
-        var text = Cookies.get("text");
-
-        // display data
-        document.getElementById("view").innerHTML = "Name: " + name + "<br>" +
-                                                    "Color: " + color + "<br>" +
-                                                    "Animal: " + animal + "<br>" +
-                                                    "Filler text: " + text;
-    var t1 = performance.now(); // end timing
+    var t0=performance.now();var name=Cookies.get("name");var color=Cookies.get("color");var animal=Cookies.get("animal");var text=Cookies.get("text");document.getElementById("view").innerHTML="Name: "+name+"<br>"+"Color: "+color+"<br>"+"Animal: "+animal+"<br>"+"Filler text: "+text;var t1=performance.now();
 
     var time = t1 - t0;
     document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve and display the stored data, displayed below:";
