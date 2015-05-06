@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Storage</title>
+    <link rel="stylesheet" href="../css/styles.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700|Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <h1>Web Storage</h1>
+
+    <form name="data">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name"><br>
+
+        <label for="color">Favorite Color:</label>
+        <select id="color" form="data">
+            <option value="dodgerblue">Blue</option>
+            <option value="crimson">Pink</option>
+            <option value="darkgreen">Green</option>
+            <option value="darkorange">Orange</option>
+            <option value="darkgray">Gray</option>
+        </select><br>
+
+        <label for="animal">Favorite Animal:</label>
+        <select id="animal" form="data">
+            <option value="../img/dog.png">Dog</option>
+            <option value="../img/cat.png">Cat</option>
+            <option value="../img/whale.png">Whale</option>
+            <option value="../img/horse.png">Horse</option>
+            <option value="../img/sheep.png">Sheep</option>
+        </select><br>
+        
+        <a href="#" id="clear">Clear</a>
+        <a href="#result" id="continue">Continue</a>
+    </form>
+
+    <div id="demo">
+        <p id="greet"></p>
+        <p id="picture"></p>
+    
+        <p id="result"></p>
+        <p id="view"></p>
+    </div>
+
+    <script src="../js/web.storage.demo.js"></script>
+</body>
+</html>
