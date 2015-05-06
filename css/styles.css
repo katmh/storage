@@ -93,5 +93,7 @@ textarea {
 }
 
 #result {
-  font: 2rem/1.15em Open Sans,sans-serif;
+  font: 2rem/1.25em Open Sans,sans-serif;
 }
+
+#view { font: 1rem/1.25em Open Sans,sans-serif }
