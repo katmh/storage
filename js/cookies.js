@@ -4,16 +4,9 @@
 
 // attaches functions to buttons
 document.getElementById("continue").addEventListener("click", saveData);
-// document.getElementById("clear").addEventListener("click", clearData);
+document.getElementById("clear").addEventListener("click", clearData);
 
 function saveData() {
-    // resets cookies
-    // TODO: check for cookies first
-    Cookies.set("name", "");
-    Cookies.set("color", "");
-    Cookies.set("animal", "");
-    Cookies.set("text", "");
-    
     // sets form values to variables
     var formName = document.getElementById("first-name").value;
     var formColor = document.getElementById("color").value;
@@ -30,4 +23,13 @@ function saveData() {
 
     var time = t1 - t0;
     document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve and display the stored data, displayed below:";
+}
+
+function clearData() {
+    // resets cookies
+    // TODO: check for cookies first
+    Cookies.set("name", "");
+    Cookies.set("color", "");
+    Cookies.set("animal", "");
+    Cookies.set("text", "");
 }
