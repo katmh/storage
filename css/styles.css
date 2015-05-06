@@ -92,8 +92,6 @@ textarea {
   padding: .5rem 1rem .5rem 0;
 }
 
-#result {
-  font: 2.15rem/1.25em Open Sans,sans-serif;
-}
-
+p { margin: .5em 0 }
+#result { font: 2.15rem/1.25em Open Sans,sans-serif }
 #view { font: 1.25rem/1.25em Open Sans,sans-serif }
