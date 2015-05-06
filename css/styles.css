@@ -60,7 +60,7 @@ textarea {
   font: normal 1rem/1.5em Open Sans;
 }
 
-#clear, #continue {
+#clear, #continue, #display {
   font: bold 2.5rem/1em Oswald;
   text-transform: uppercase;
   text-decoration: none;
@@ -78,6 +78,8 @@ textarea {
   background: #008f3f;
   float: right;
 }
+
+#display { background: #008F86 }
 
 #result {
   font: 2rem/1.5em Open Sans;
