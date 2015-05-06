@@ -19,6 +19,14 @@ function saveData() {
     Cookies.set("animal", formAnimal);
     Cookies.set("text", formText);
 
+    /* demo:
+        - hello, [name]!
+        - background to fave color
+        - pic of fave animal
+        - here's the data you entered:
+    */
+    document.getElementById("demo").style.backgroundColor = Cookies.get("color");
+
     var t0=performance.now();var name=Cookies.get("name");var color=Cookies.get("color");var animal=Cookies.get("animal");var text=Cookies.get("text");document.getElementById("view").innerHTML="Name: "+name+"<br>"+"Color: "+color+"<br>"+"Animal: "+animal+"<br>"+"Filler text: "+text;var t1=performance.now();
 
     var time = t1 - t0;
