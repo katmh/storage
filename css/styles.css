@@ -1,6 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -20,7 +23,7 @@ form {
 }
 
 label {
-  font: normal 2.75rem/1.25em Oswald;
+  font: normal 2.5rem/1.25em Oswald;
   color: #41363A;
   text-transform: uppercase;
   margin: 0.75rem 0.75rem 0.75rem 0;
@@ -30,7 +33,7 @@ label {
 input, select {
   outline: none;
   margin: 0.25em;
-  font: normal 2.75rem/1em Oswald;
+  font: normal 2.5rem/1em Oswald;
   color: #41363A;
 }
 
@@ -58,7 +61,7 @@ textarea {
 }
 
 #clear, #continue {
-  font: bold 2.75rem/1em Oswald;
+  font: bold 2.5rem/1em Oswald;
   text-transform: uppercase;
   text-decoration: none;
   color: #fff;
