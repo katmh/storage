@@ -25,7 +25,9 @@ function saveData() {
         - pic of fave animal
         - here's the data you entered:
     */
-    document.getElementById("demo").style.backgroundColor = Cookies.get("color");
+    var demo = document.getElementById("demo");
+    demo.write("Hello, " + Cookies.get("name"));
+    demo.style.backgroundColor = Cookies.get("color");
 
     var t0=performance.now();var name=Cookies.get("name");var color=Cookies.get("color");var animal=Cookies.get("animal");var text=Cookies.get("text");document.getElementById("view").innerHTML="Name: "+name+"<br>"+"Color: "+color+"<br>"+"Animal: "+animal+"<br>"+"Filler text: "+text;var t1=performance.now();
 
