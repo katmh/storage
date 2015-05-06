@@ -28,7 +28,7 @@ function saveData() {
     */
     // var demo = document.getElementById("demo");
     // demo.getElementById("greet").innerHTML("Hello, " + Cookies.get("name"));
-    document.getElementById("greet").innerHTML = "Hello, " + Cookies.get("name");
+    document.getElementById("greet").innerHTML = "Hello, " + Cookies.get("name") + "!";
     document.getElementById("picture").innerHTML = "<img src=\"../" + Cookies.get("animal") + "\">";
     document.getElementById("demo").style.backgroundColor = Cookies.get("color");
 
@@ -54,7 +54,7 @@ function displayDemo() {
     var t0=performance.now();var name=Cookies.get("name");var color=Cookies.get("color");var animal=Cookies.get("animal");var text=Cookies.get("text");document.getElementById("view").innerHTML="Name: "+name+"<br>"+"Color: "+color+"<br>"+"Animal: "+animal+"<br>"+"Filler text: "+text;var t1=performance.now();
 
     var time = t1 - t0;
-    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve and display the stored data, displayed below:";
+    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve and display your stored data:";
 }
 
 function clearData() {
