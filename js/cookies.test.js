@@ -10,9 +10,9 @@ function saveData() {
     // resets cookies
     // TODO: check for cookies first
     Cookies.set("name", "");
-    Cookies.set("color", formColor);
-    Cookies.set("animal", formAnimal);
-    Cookies.set("text", formText);
+    Cookies.set("color", "");
+    Cookies.set("animal", "");
+    Cookies.set("text", "");
     
     // sets form values to variables
     var formName = document.getElementById("first-name").value;
