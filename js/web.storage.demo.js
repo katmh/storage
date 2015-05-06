@@ -22,6 +22,10 @@ function saveData() {
     localStorage.color = document.getElementById("color").value;
     localStorage.animal = document.getElementById("animal").value;
 
+    document.getElementById("greet").innerHTML = "Hello, " + localStorage.getItem("name") + "!";
+    document.getElementById("picture").innerHTML = "<img src=\"../" + localStorage.getItem("animal") + "\">";
+    document.getElementById("demo").style.backgroundColor = localStorage.getItem("color");
+
     var t0 = performance.now();
         document.getElementById("view").innerHTML = "Name: " + localStorage.getItem("name") + "<br>" +
                                                     "Color: " + localStorage.getItem("color") + "<br>" +
@@ -32,4 +36,17 @@ function saveData() {
     document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve the stored data, displayed below:"
 }
 
-function displayDemo() {}
+function displayDemo() {
+    document.getElementById("greet").innerHTML = "Hello, " + localStorage.getItem("name") + "!";
+    document.getElementById("picture").innerHTML = "<img src=\"../" + localStorage.getItem("animal") + "\">";
+    document.getElementById("demo").style.backgroundColor = localStorage.getItem("color");
+
+    var t0 = performance.now();
+        document.getElementById("view").innerHTML = "Name: " + localStorage.getItem("name") + "<br>" +
+                                                    "Color: " + localStorage.getItem("color") + "<br>" +
+                                                    "Animal: " + localStorage.getItem("animal");
+    var t1 = performance.now();
+
+    var time = t1 - t0;
+    document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve the stored data, displayed below:"
+}
