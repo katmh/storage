@@ -28,6 +28,9 @@ h1 {
     );
     display: block;
 }
+.diagonal a {
+    background: rgba(0,0,0,.15);
+}
 
 ul { text-align: center }
 li {
@@ -53,4 +56,10 @@ li:hover {
 
 li::before {
     content: "vs";
+    float: left;
+    font: normal 1rem/1em Oswald;
+    color: #fff480;
+    padding: .5em;
+    border-radius: 1rem;
+    background: #465298;
 }
