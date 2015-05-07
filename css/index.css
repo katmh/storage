@@ -22,9 +22,9 @@ h1 {
     background: repeating-linear-gradient(
       45deg,
       #606dbc,
-      #606dbc 10px,
-      #465298 10px,
-      #465298 20px
+      #606dbc 1rem,
+      #465298 1rem,
+      #465298 2rem
     );
     display: block;
 }
