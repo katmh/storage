@@ -65,5 +65,5 @@ li::before {
     background: #465298;
 }
 li:first-child::before {
-    content: "";
+    opacity: 0;
 }
