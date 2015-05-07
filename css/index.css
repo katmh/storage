@@ -3,11 +3,16 @@
     padding: 0;
 }
 
+body {
+    background-image: url(http://subtlepatterns.com/patterns/debut_dark.png);
+}
+
 .dyellow { color: #ffee33 }
 .lyellow { color: #fff480 }
 
 ul { text-align: center }
 li {
+    display: inline-block;
     width: 26%;
     padding: 7%;
 }
