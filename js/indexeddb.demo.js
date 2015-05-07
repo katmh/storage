@@ -49,11 +49,14 @@ window.onload = function() {
         if(cursor) {
           document.getElementById("view").innerHTML = "Name: " + cursor.value.name + "<br>" +
                                "Color: " + cursor.value.color + "<br>" +
-                               "Animal: " + cursor.value.animal + "<br>" +
-                               "Text: " + cursor.value.text;
+                               "Animal: " + cursor.value.animal;
           cursor.continue();
+          var t1 = performance.now();
+          
+          document.getElementById("greet").innerHTML = "Hello, " + cursor.value.name + "!";
+          document.getElementById("animal").innerHTML = "<img src=\"../" + cursor.value.animal + "\">";
+          document.getElementById("demo").style.backgroundColor = cursor.value.color;
         }
-    var t1 = performance.now();
     var time = t1 - t0;
     document.getElementById("result").innerHTML = "It took <b>" + time + "</b> microseconds to retrieve and display the stored data."
     }
