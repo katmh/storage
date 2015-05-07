@@ -10,7 +10,10 @@ body {
     background-image: url(http://subtlepatterns.com/patterns/debut_dark.png);
 }
 
-header { font: normal 3rem/1.25em Oswald }
+h1 {
+    font: normal 3rem/2.25em Oswald;
+    text-transform: uppercase;
+}
 .dyellow { color: #ffee33 }
 .lyellow { color: #fff480 }
 
@@ -20,10 +23,11 @@ li {
     width: 26%;
     margin: 3.5%;
     padding: 1.5%;
+    background: rgba(0,0,0,.25);
 }
 li a {
     font: normal 3rem/1.25em Oswald;
     text-decoration: none;
+    text-transform: uppercase;
     color: #fff480;
-    background: rgba(0,0,0,.5);
 }
