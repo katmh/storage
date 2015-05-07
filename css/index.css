@@ -13,6 +13,7 @@ body {
 h1 {
     font: normal 3rem/2.25em Oswald;
     text-transform: uppercase;
+    text-align: center;
 }
 .dyellow { color: #ffee33 }
 .lyellow { color: #fff480 }
