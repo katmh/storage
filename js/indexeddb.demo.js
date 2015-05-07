@@ -54,7 +54,7 @@ window.onload = function() {
           var t1 = performance.now();
           
           document.getElementById("greet").innerHTML = "Hello, " + cursor.value.name + "!";
-          document.getElementById("animal").innerHTML = "<img src=\"../" + cursor.value.animal + "\">";
+          document.getElementById("picture").innerHTML = "<img src=\"../" + cursor.value.animal + "\">";
           document.getElementById("demo").style.backgroundColor = cursor.value.color;
         }
     var time = t1 - t0;
