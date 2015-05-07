@@ -63,42 +63,35 @@ window.onload = function() {
   document.getElementById("continue").addEventListener("click", addData);
 
   function addData(e) {
-    // prevent default - we don't want the form to submit in the conventional way
     e.preventDefault();
 
-    alert(document.getElementById('first').value);
+    var newItem = [
+      { name: document.getElementById('first').value, color: color.value, animal: animal.value, text: text.value }
+    ];
 
-      // grab the values entered into the form fields and store them in an object ready for being inserted into the IDB
-      var newItem = [
-        { name: document.getElementById('first').value, color: color.value, animal: animal.value, text: text.value }
-      ];
+    var transaction = db.transaction(["data"], "readwrite");
 
-      // open a read/write db transaction, ready for adding the data
-      var transaction = db.transaction(["data"], "readwrite");
+    transaction.oncomplete = function() {
+      displayData();
+    };
 
-      // report on the success of opening the transaction
-      transaction.oncomplete = function() {
-        displayData();
-      };
+    // call an object store that's already been added to the database
+    var objectStore = transaction.objectStore("data");
+    console.log("index names: " + objectStore.indexNames);
+    console.log("keypath: " + objectStore.keyPath);
+    console.log("name: " + document.getElementById('first').value);
+    console.log("object store name: " + objectStore.name);
+    console.log("transaction: " + objectStore.transaction);
+    console.log("auto increment: " + objectStore.autoIncrement);
 
-      // call an object store that's already been added to the database
-      var objectStore = transaction.objectStore("data");
-      console.log("index names: " + objectStore.indexNames);
-      console.log("keypath: " + objectStore.keyPath);
-      console.log("name: " + document.getElementById('first').value);
-      console.log("object store name: " + objectStore.name);
-      console.log("transaction: " + objectStore.transaction);
-      console.log("auto increment: " + objectStore.autoIncrement);
-
-      // add our newItem object to the object store
-      var objectStoreRequest = objectStore.add(newItem[0]);
-        objectStoreRequest.onsuccess = function(event) {
-          // clear the form, ready for adding the next entry
-          name.value = '';
-          color.value = null;
-          animal.value = null;
-      };
-
+    // add our newItem object to the object store
+    var objectStoreRequest = objectStore.add(newItem[0]);
+      objectStoreRequest.onsuccess = function(event) {
+        // clear the form, ready for adding the next entry
+        name.value = '';
+        color.value = null;
+        animal.value = null;
+    };
     };
 
   function deleteItem(event) {
