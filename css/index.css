@@ -50,3 +50,8 @@ li a {
 li:hover {
     background: rgba(0,0,0,.5);
 }
+
+li:before {
+    content: "vs";
+}
+}
