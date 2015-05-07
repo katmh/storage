@@ -11,9 +11,10 @@ body {
 }
 
 h1 {
-    font: normal 3rem/2.25em Oswald;
+    font: normal 5rem/1.25em Oswald;
     text-transform: uppercase;
     text-align: center;
+    margin: .5em 0;
 }
 .dyellow { color: #ffee33 }
 .lyellow { color: #fff480 }
@@ -25,10 +26,17 @@ li {
     margin: 3.5%;
     padding: 1.5%;
     background: rgba(0,0,0,.25);
+    -webkit-transition: .25s;
+    -moz-transition: .25s;
+    transition: .25s;
 }
 li a {
     font: normal 3rem/1.25em Oswald;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff480;
+}
+li:hover {
+    background: rgba(0,0,0,.5);
+}
 }
