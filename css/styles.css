@@ -10,9 +10,9 @@ h1 {
   width: 100%;
   padding: 4%;
   background-image: url('http://subtlepatterns.com/patterns/debut_dark.png');
-  border-bottom: solid 1rem #606dbc;
+  border-bottom: solid 1rem #ffee33;
   text-align: center;
-  color: #606dbc;
+  color: #fff480;
   font: bold 6rem/100% Oswald;
   text-transform: uppercase;
 }
