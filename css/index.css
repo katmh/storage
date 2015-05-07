@@ -7,6 +7,7 @@ body {
     background-image: url(http://subtlepatterns.com/patterns/debut_dark.png);
 }
 
+header { font: normal 3rem/1.25em Oswald }
 .dyellow { color: #ffee33 }
 .lyellow { color: #fff480 }
 
@@ -14,5 +15,5 @@ ul { text-align: center }
 li {
     display: inline-block;
     width: 26%;
-    padding: 7%;
+    margin: 7%;
 }
