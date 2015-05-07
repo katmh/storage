@@ -55,11 +55,15 @@ li:hover {
 }
 
 li::before {
-    content: "vs";
+    content: "VS";
     float: left;
-    font: normal 1rem/1em Oswald;
+    margin-left: -30%;
+    font: normal 1.75rem/1em Oswald;
     color: #fff480;
     padding: .5em;
-    border-radius: 1rem;
+    border-radius: 2rem;
     background: #465298;
+}
+li:first-child::before {
+    content: "";
 }
