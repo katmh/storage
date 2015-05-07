@@ -1,6 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -15,5 +18,12 @@ ul { text-align: center }
 li {
     display: inline-block;
     width: 26%;
-    margin: 7%;
+    margin: 3.5%;
+    padding: 1.5%;
+}
+li a {
+    font: normal 3rem/1.25em Oswald;
+    text-decoration: none;
+    color: #fff480;
+    background: rgba(0,0,0,.5);
 }
