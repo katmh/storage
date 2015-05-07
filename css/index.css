@@ -18,6 +18,16 @@ h1 {
 }
 .dyellow { color: #ffee33 }
 .lyellow { color: #fff480 }
+.diagonal {
+    background: repeating-linear-gradient(
+      45deg,
+      #606dbc,
+      #606dbc 10px,
+      #465298 10px,
+      #465298 20px
+    );
+    display: block;
+}
 
 ul { text-align: center }
 li {
